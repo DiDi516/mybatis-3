@@ -32,6 +32,7 @@ public class PropertyParser {
    * </p>
    * @since 3.4.2
    */
+  //note:在mybatis-config.xml中<properties>节点下配置是否开启默认值功能的对应配置项
   public static final String KEY_ENABLE_DEFAULT_VALUE = KEY_PREFIX + "enable-default-value";
 
   /**
@@ -52,6 +53,7 @@ public class PropertyParser {
 
   public static String parse(String string, Properties variables) {
     VariableTokenHandler handler = new VariableTokenHandler(variables);
+    //note:创建GenericTokenParser对象，并指定其处理的占位符格式为"${}"
     GenericTokenParser parser = new GenericTokenParser("${", "}", handler);
     return parser.parse(string);
   }

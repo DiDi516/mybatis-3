@@ -62,7 +62,7 @@ public class XPathParser {
   private EntityResolver entityResolver;
 
   /**
-   * 变量 Properties 对象(用来替换需要动态配置的属性值)
+   * 对应mybatis-config.xml中<properties>标签对应的键值对集合
    */
   private Properties variables;
 
@@ -320,6 +320,7 @@ public class XPathParser {
     this.validation = validation;
     this.entityResolver = entityResolver;
     this.variables = variables;
+    //构造xpath工厂
     XPathFactory factory = XPathFactory.newInstance();
     this.xpath = factory.newXPath();
   }
